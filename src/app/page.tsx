@@ -47,7 +47,7 @@ export default function Home() {
             height={3024 / 3}
           />
 
-          <Gallery />
+          <Gallery role={userInput === "tristan" ? "god" : "mortal"} />
         </main>
       </div>
     </>
