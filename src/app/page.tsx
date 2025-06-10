@@ -11,13 +11,30 @@ import { useState } from "react";
 
 export default function Home() {
   const [userInput, setUserInput] = useState("");
+
+  console.log("User input:", userInput);
+  if (userInput === "tristan") {
+    console.log("Hello God");
+  } else {
+    console.log("Hello mortal");
+  }
   return (
     <>
       <TopBar />
       <div className={styles.page}>
         <main className={styles.main}>
-          <TextField id="standard-basic" label="Standard" variant="standard" value={userInput} onChange={(e) => setUserInput(e.target.value)}/>
-          <Button variant="outlined" startIcon={<LocalAirport />}>
+          <TextField
+            id="standard-basic"
+            label="Standard"
+            variant="standard"
+            value={userInput}
+            onChange={(e) => setUserInput(e.target.value)}
+          />
+          <Button
+            variant="contained"
+            startIcon={<LocalAirport />}
+            color={userInput === "tristan" ? "success" : "error"}
+          >
             Croatia Trip 2025
           </Button>
           <SummaryCard />
