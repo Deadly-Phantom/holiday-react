@@ -1,13 +1,27 @@
 "use client";
 
-import { Avatar, Paper, Stack, TextField, Typography } from "@mui/material";
+import { Login } from "@mui/icons-material";
+import {
+  Avatar,
+  Button,
+  Divider,
+  Paper,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
 
 export default function Home() {
   return (
     <>
       <Paper elevation={5} sx={{ padding: 2, margin: "0 auto", maxWidth: 290 }}>
-        <Stack>
-          <Typography variant="h5" sx={{ margin: "0 auto" }}>
+        <Stack spacing={1}>
+          <Typography
+            fontFamily={"lobster"}
+            fontWeight={700}
+            variant="h5"
+            sx={{ margin: "0 auto", textAlign: "center" }}
+          >
             Croatia Trip 2025
           </Typography>
           <Avatar
@@ -22,6 +36,10 @@ export default function Home() {
             label="Password"
             variant="outlined"
           />
+          <Divider sx={{ paddingBottom: 2 }} />
+          <Button variant="contained" startIcon={<Login />}>
+            Login
+          </Button>
         </Stack>
       </Paper>
     </>

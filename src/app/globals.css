@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'lobster';
+    src: url(/Lobster-Regular.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html, body {
     margin: 0;
     padding: 0;
