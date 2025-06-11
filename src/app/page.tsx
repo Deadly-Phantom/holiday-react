@@ -5,18 +5,15 @@ import TopBar from "@/components/TopBar";
 import Details from "@/components/Details";
 import SummaryCard from "@/components/SummaryCard";
 import Gallery from "@/components/Gallery";
-import { useState } from "react";
 import ActionBar from "@/components/ActionBar";
 
 export default function Home() {
-  const [userInput, setUserInput] = useState("");
-
   return (
     <>
       <TopBar />
       <div className={styles.page}>
         <main className={styles.main}>
-          <ActionBar userInput={userInput} setUserInput={setUserInput} />
+          <ActionBar />
           <SummaryCard />
           <Details />
           <Image
@@ -27,7 +24,7 @@ export default function Home() {
             height={3024 / 3}
           />
 
-          <Gallery role={userInput === "tristan" ? "god" : "mortal"} />
+          <Gallery />
         </main>
       </div>
     </>

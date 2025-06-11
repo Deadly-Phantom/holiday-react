@@ -1,8 +1,11 @@
 "use client";
 import { ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
 import { imageData } from "./imageData";
+import { useStore } from "@/store";
 
-export default function Gallery({ role = "mortal" }) {
+export default function Gallery() {
+  const userInput = useStore((state) => state.userInput);
+  const role = userInput === "tristan" ? "god" : "mortal";
   if (role === "mortal") {
     console.log("noob");
   } else {

@@ -2,14 +2,17 @@
 import { Button, TextField } from "@mui/material";
 import { LocalAirport } from "@mui/icons-material";
 import { useState } from "react";
+import { useStore } from "@/store";
 
-export default function ActionBar({ userInput, setUserInput }: any) {
+export default function ActionBar() {
   const [age, setAge] = useState(5);
+  const userInput = useStore((state) => state.userInput);
+  const setUserInput = useStore((state) => state.setUserInput);
 
   return (
     <>
       <Button
-        onClick={(e) => {
+        onClick={() => {
           setUserInput("yeon");
           setAge(39);
         }}
@@ -18,7 +21,7 @@ export default function ActionBar({ userInput, setUserInput }: any) {
         Y
       </Button>
       <Button
-        onClick={(e) => {
+        onClick={() => {
           setUserInput("tristan");
           setAge(17);
         }}

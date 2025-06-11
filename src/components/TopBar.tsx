@@ -2,7 +2,6 @@
 import {
   AppBar,
   Box,
-  Button,
   IconButton,
   Menu,
   MenuItem,
@@ -15,6 +14,7 @@ import { useState } from "react";
 export default function TopBar() {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
   };
