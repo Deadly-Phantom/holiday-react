@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import styles from "./page.module.css";
 import TopBar from "@/components/TopBar";
 import Details from "@/components/Details";
@@ -16,10 +15,9 @@ export default function Home() {
           <ActionBar />
           <SummaryCard />
           <Details />
-          <Image
+          <img
             src="/landscape.jpeg"
             alt="Ocean"
-            priority
             width={4032 / 3}
             height={3024 / 3}
           />
