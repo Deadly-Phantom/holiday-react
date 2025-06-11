@@ -16,7 +16,7 @@ export default function Home() {
           <SummaryCard />
           <Details />
           <img
-            src="/landscape.jpeg"
+            src="landscape.jpeg"
             alt="Ocean"
             width={4032 / 3}
             height={3024 / 3}
