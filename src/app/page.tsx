@@ -1,42 +1,22 @@
 "use client";
 import Image from "next/image";
 import styles from "./page.module.css";
-import { Button, TextField } from "@mui/material";
-import { LocalAirport } from "@mui/icons-material";
 import TopBar from "@/components/TopBar";
 import Details from "@/components/Details";
 import SummaryCard from "@/components/SummaryCard";
 import Gallery from "@/components/Gallery";
 import { useState } from "react";
+import ActionBar from "@/components/ActionBar";
 
 export default function Home() {
   const [userInput, setUserInput] = useState("");
 
-  console.log("User input:", userInput);
-  if (userInput === "tristan") {
-    console.log("Hello God");
-  } else {
-    console.log("Hello mortal");
-  }
   return (
     <>
       <TopBar />
       <div className={styles.page}>
         <main className={styles.main}>
-          <TextField
-            id="standard-basic"
-            label="Standard"
-            variant="standard"
-            value={userInput}
-            onChange={(e) => setUserInput(e.target.value)}
-          />
-          <Button
-            variant="contained"
-            startIcon={<LocalAirport />}
-            color={userInput === "tristan" ? "success" : "error"}
-          >
-            Croatia Trip 2025
-          </Button>
+          <ActionBar userInput={userInput} setUserInput={setUserInput} />
           <SummaryCard />
           <Details />
           <Image
