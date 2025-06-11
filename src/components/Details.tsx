@@ -36,7 +36,7 @@ export default function Details() {
           malesuada lacus ex, sit amet blandit leo lobortis eget.
         </AccordionDetails>
       </Accordion>
-      <Accordion defaultExpanded>
+      <Accordion defaultExpanded sx={{ marginBottom: 2 }}>
         <AccordionSummary
           expandIcon={<ExpandMore />}
           aria-controls="panel3-content"
