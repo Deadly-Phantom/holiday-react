@@ -22,7 +22,7 @@ export default function SummaryCard() {
           sx={{ width: "100%", marginTop: 2, marginBottom: 2 }}
         >
           <Avatar
-            alt="Remy Sharp"
+            alt="Tristan"
             src="avatar.jpeg"
             sx={{ width: 60, height: 60 }}
           />
