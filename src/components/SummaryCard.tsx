@@ -23,7 +23,7 @@ export default function SummaryCard() {
         >
           <Avatar
             alt="Remy Sharp"
-            src="/avatar.jpeg"
+            src="avatar.jpeg"
             sx={{ width: 60, height: 60 }}
           />
           <Typography gutterBottom variant="h5" component="div">
