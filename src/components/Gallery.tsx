@@ -5,6 +5,8 @@ import { useStore } from "@/store";
 
 export default function Gallery() {
   const userInput = useStore((state) => state.userInput);
+  const date = useStore((state) => state.date);
+
   const role = userInput === "tristan" ? "god" : "mortal";
   if (role === "mortal") {
     console.log("noob");
@@ -16,6 +18,7 @@ export default function Gallery() {
     <ImageList sx={{ width: "100%", height: 900 }}>
       {imageData
         .filter((i) => (role === "mortal" ? i.role === role : true))
+        .filter((i) => (i.date && date && date != "" ? i.date === date : true))
         .map((item) => (
           <ImageListItem key={item.img}>
             <img
@@ -26,7 +29,11 @@ export default function Gallery() {
             />
             <ImageListItemBar
               title={item.title}
-              subtitle={<span>by: {item.author}</span>}
+              subtitle={
+                <span>
+                  by: {item.author} at {item.date}
+                </span>
+              }
               position="below"
             />
           </ImageListItem>

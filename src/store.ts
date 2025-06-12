@@ -6,4 +6,6 @@ export const useStore = create((set: any) => ({
   setUserInput: (newUserInput: string) => set(() => ({ userInput: newUserInput})),
   userPassword: "",
   setUserPassword: (newUserPassword: string) => set(() => ({ userPassword: newUserPassword })),
+  date: "",
+  setDate: (newDate: string) => set(() => ({ date: newDate })),
 }))
