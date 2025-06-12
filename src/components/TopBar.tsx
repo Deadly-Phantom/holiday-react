@@ -54,7 +54,9 @@ export default function TopBar() {
           >
             <MenuItem
               onClick={() => {
-                window.location.href = "/home";
+                window.location.href = process.env.IS_LOCAL
+                  ? "/home"
+                  : "/holiday-react/home";
               }}
             >
               <ListItemIcon>
@@ -64,7 +66,9 @@ export default function TopBar() {
             </MenuItem>
             <MenuItem
               onClick={() => {
-                window.location.href = "/dev";
+                window.location.href = process.env.IS_LOCAL
+                  ? "/dev"
+                  : "/holiday-react/dev";
               }}
             >
               <ListItemIcon>

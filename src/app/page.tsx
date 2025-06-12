@@ -47,7 +47,9 @@ export default function Home() {
         if (userInput === "tristan" && userPassword === "1") {
           setSuccess(true);
           setLoading(false);
-          window.location.href = "/home";
+          window.location.href = process.env.IS_LOCAL
+            ? "/home"
+            : "/holiday-react/home";
         } else {
           setSuccess(false);
           setLoading(false);
