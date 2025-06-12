@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import { useStore } from "@/store";
+import { isLocal } from "@/isLocal";
 // to do: simulate login function
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -47,9 +48,7 @@ export default function Home() {
         if (userInput === "tristan" && userPassword === "1") {
           setSuccess(true);
           setLoading(false);
-          window.location.href = process.env.IS_LOCAL
-            ? "/home"
-            : "/holiday-react/home";
+          window.location.href = isLocal ? "/home" : "/holiday-react/home";
         } else {
           setSuccess(false);
           setLoading(false);

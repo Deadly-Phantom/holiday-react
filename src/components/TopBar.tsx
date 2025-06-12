@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import { Code, Home, Menu as MenuIcon } from "@mui/icons-material";
 import { useState } from "react";
+import { isLocal } from "@/isLocal";
 
 export default function TopBar() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -54,7 +55,7 @@ export default function TopBar() {
           >
             <MenuItem
               onClick={() => {
-                window.location.href = process.env.IS_LOCAL
+                window.location.href = isLocal
                   ? "/home"
                   : "/holiday-react/home";
               }}
@@ -66,9 +67,7 @@ export default function TopBar() {
             </MenuItem>
             <MenuItem
               onClick={() => {
-                window.location.href = process.env.IS_LOCAL
-                  ? "/dev"
-                  : "/holiday-react/dev";
+                window.location.href = isLocal ? "/dev" : "/holiday-react/dev";
               }}
             >
               <ListItemIcon>
