@@ -3,12 +3,14 @@ import {
   AppBar,
   Box,
   IconButton,
+  ListItemIcon,
+  ListItemText,
   Menu,
   MenuItem,
   Toolbar,
   Typography,
 } from "@mui/material";
-import { Menu as MenuIcon } from "@mui/icons-material";
+import { Code, ContentCopy, Home, Menu as MenuIcon } from "@mui/icons-material";
 import { useState } from "react";
 
 export default function TopBar() {
@@ -24,7 +26,7 @@ export default function TopBar() {
 
   return (
     <Box sx={{ flexGrow: 1, marginBottom: 2 }}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <IconButton
             aria-controls={open ? "basic-menu" : undefined}
@@ -50,9 +52,26 @@ export default function TopBar() {
               },
             }}
           >
-            <MenuItem onClick={handleClose}>Culture</MenuItem>
-            <MenuItem onClick={handleClose}>History</MenuItem>
-            <MenuItem onClick={handleClose}>Landscape</MenuItem>
+            <MenuItem
+              onClick={() => {
+                window.location.href = "/home";
+              }}
+            >
+              <ListItemIcon>
+                <Home fontSize="small" />
+              </ListItemIcon>
+              <ListItemText>Home</ListItemText>
+            </MenuItem>
+            <MenuItem
+              onClick={() => {
+                window.location.href = "/dev";
+              }}
+            >
+              <ListItemIcon>
+                <Code fontSize="small" />
+              </ListItemIcon>
+              <ListItemText>Dev</ListItemText>
+            </MenuItem>
           </Menu>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Croatia Trip 2025
