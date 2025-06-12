@@ -1,5 +1,5 @@
 "use client";
-import { Button, TextField } from "@mui/material";
+import { Button, Stack, TextField } from "@mui/material";
 import { LocalAirport } from "@mui/icons-material";
 import { useState } from "react";
 import { useStore } from "@/store";
@@ -10,7 +10,7 @@ export default function ActionBar() {
   const setUserInput = useStore((state) => state.setUserInput);
 
   return (
-    <>
+    <Stack direction={"row"} spacing={2} sx={{ padding: 2 }}>
       <Button
         onClick={() => {
           setUserInput("yeon");
@@ -54,6 +54,6 @@ export default function ActionBar() {
       >
         Croatia Trip 2025
       </Button>
-    </>
+    </Stack>
   );
 }

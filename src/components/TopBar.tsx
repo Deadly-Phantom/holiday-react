@@ -10,7 +10,7 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import { Code, ContentCopy, Home, Menu as MenuIcon } from "@mui/icons-material";
+import { Code, Home, Menu as MenuIcon } from "@mui/icons-material";
 import { useState } from "react";
 
 export default function TopBar() {
