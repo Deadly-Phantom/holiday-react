@@ -10,7 +10,6 @@ export default function ActionBar() {
   const [age, setAge] = useState(5);
   const userInput = useStore((state) => state.userInput);
   const setUserInput = useStore((state) => state.setUserInput);
-  const date = useStore((state) => state.date);
   const setDate = useStore((state) => state.setDate);
 
   return (
@@ -61,15 +60,17 @@ export default function ActionBar() {
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DatePicker
           label="Select a Date"
-          onChange={(e: any) =>
-            setDate(
-              e["$y"] +
-                "-" +
-                String(e["$M"] + 1).padStart(2, "0") +
-                "-" +
-                String(e["$D"]).padStart(2, "0")
-            )
-          }
+          onChange={(e) => {
+            if (e) {
+              setDate(
+                e.year() +
+                  "-" +
+                  String(e.month() + 1).padStart(2, "0") +
+                  "-" +
+                  String(e.date()).padStart(2, "0")
+              );
+            }
+          }}
         />
       </LocalizationProvider>
     </Stack>
