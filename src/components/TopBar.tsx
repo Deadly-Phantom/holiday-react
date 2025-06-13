@@ -10,13 +10,24 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import { Code, Home, Menu as MenuIcon } from "@mui/icons-material";
+import {
+  Code,
+  DarkMode,
+  Home,
+  LightMode,
+  Menu as MenuIcon,
+} from "@mui/icons-material";
 import { useState } from "react";
 import { isLocal } from "@/isLocal";
+import { useStore } from "@/store";
 
 export default function TopBar() {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  const myTheme = useStore((state) => state.myTheme);
+
+  const setMyTheme = useStore((state) => state.setMyTheme);
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
@@ -79,6 +90,16 @@ export default function TopBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Croatia Trip 2025
           </Typography>
+          <IconButton
+            color="inherit"
+            onClick={() => {
+              if (myTheme === "dark") {
+                setMyTheme("light");
+              } else if (myTheme === "light") setMyTheme("dark");
+            }}
+          >
+            {myTheme === "dark" ? <LightMode /> : <DarkMode />}
+          </IconButton>
         </Toolbar>
       </AppBar>
     </Box>

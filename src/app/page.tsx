@@ -1,13 +1,13 @@
 "use client";
 import { green } from "@mui/material/colors";
-import { Login } from "@mui/icons-material";
+import { DarkMode, LightMode, Login } from "@mui/icons-material";
 import {
   Avatar,
   Button,
   CircularProgress,
-  createTheme,
   CssBaseline,
   Divider,
+  IconButton,
   Paper,
   Stack,
   TextField,
@@ -17,6 +17,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { useStore } from "@/store";
 import { isLocal } from "@/isLocal";
+import { tristanDarkTheme, tristanLightTheme } from "@/theme";
 // to do: simulate login function
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -26,35 +27,8 @@ export default function Home() {
   const setUserInput = useStore((state) => state.setUserInput);
   const userPassword = useStore((state) => state.userPassword);
   const setUserPassword = useStore((state) => state.setUserPassword);
-
-  const tristanLightTheme = createTheme({
-    palette: {
-      mode: "light",
-      primary: {
-        main: "#2979ff",
-        dark: "#651fff",
-        contrastText: "rgba(10,11,26,0.87)",
-        light: "#40c4ff",
-      },
-      secondary: {
-        main: "#f50057",
-      },
-    },
-  });
-
-  const tristanDarkTheme = createTheme({
-    palette: {
-      mode: "dark",
-      primary: {
-        main: "#09ebec",
-        dark: "#1052f5",
-        contrastText: "rgba(10,11,26,0.87)",
-      },
-      secondary: {
-        main: "#f50057",
-      },
-    },
-  });
+  const myTheme = useStore((state) => state.myTheme);
+  const setMyTheme = useStore((state) => state.setMyTheme);
 
   const buttonSx = {
     ...(success && {
@@ -92,7 +66,10 @@ export default function Home() {
     }
   };
   return (
-    <ThemeProvider theme={tristanDarkTheme} noSsr>
+    <ThemeProvider
+      theme={myTheme === "dark" ? tristanDarkTheme : tristanLightTheme}
+      noSsr
+    >
       <CssBaseline />
       <Paper elevation={5} sx={{ padding: 2, margin: "0 auto", maxWidth: 290 }}>
         <Stack spacing={1}>
@@ -152,6 +129,22 @@ export default function Home() {
           </Button>
         </Stack>
       </Paper>
+      <IconButton
+        sx={{
+          position: "fixed",
+          top: 25,
+          right: 25,
+          zIndex: 1000,
+        }}
+        color="inherit"
+        onClick={() => {
+          if (myTheme === "dark") {
+            setMyTheme("light");
+          } else if (myTheme === "light") setMyTheme("dark");
+        }}
+      >
+        {myTheme === "dark" ? <LightMode /> : <DarkMode />}
+      </IconButton>
     </ThemeProvider>
   );
 }
