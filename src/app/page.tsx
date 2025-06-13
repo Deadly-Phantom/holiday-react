@@ -5,10 +5,13 @@ import {
   Avatar,
   Button,
   CircularProgress,
+  createTheme,
+  CssBaseline,
   Divider,
   Paper,
   Stack,
   TextField,
+  ThemeProvider,
   Typography,
 } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
@@ -23,6 +26,35 @@ export default function Home() {
   const setUserInput = useStore((state) => state.setUserInput);
   const userPassword = useStore((state) => state.userPassword);
   const setUserPassword = useStore((state) => state.setUserPassword);
+
+  const tristanLightTheme = createTheme({
+    palette: {
+      mode: "light",
+      primary: {
+        main: "#2979ff",
+        dark: "#651fff",
+        contrastText: "rgba(10,11,26,0.87)",
+        light: "#40c4ff",
+      },
+      secondary: {
+        main: "#f50057",
+      },
+    },
+  });
+
+  const tristanDarkTheme = createTheme({
+    palette: {
+      mode: "dark",
+      primary: {
+        main: "#09ebec",
+        dark: "#1052f5",
+        contrastText: "rgba(10,11,26,0.87)",
+      },
+      secondary: {
+        main: "#f50057",
+      },
+    },
+  });
 
   const buttonSx = {
     ...(success && {
@@ -60,7 +92,8 @@ export default function Home() {
     }
   };
   return (
-    <>
+    <ThemeProvider theme={tristanDarkTheme} noSsr>
+      <CssBaseline />
       <Paper elevation={5} sx={{ padding: 2, margin: "0 auto", maxWidth: 290 }}>
         <Stack spacing={1}>
           <Typography
@@ -119,6 +152,6 @@ export default function Home() {
           </Button>
         </Stack>
       </Paper>
-    </>
+    </ThemeProvider>
   );
 }
