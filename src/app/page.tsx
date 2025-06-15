@@ -18,6 +18,7 @@ import { useEffect, useRef, useState } from "react";
 import { useStore } from "@/store";
 import { isLocal } from "@/isLocal";
 import { tristanDarkTheme, tristanLightTheme } from "@/theme";
+import { userdata } from "@/db/db";
 // to do: simulate login function
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -51,15 +52,34 @@ export default function Home() {
       setLoading(true);
       setTimeout(() => {
         console.log("Checking credentials...");
-        if (userInput === "tristan" && userPassword === "1") {
+        // if (userInput === "tristan" && userPassword === "1") {
+        //   setSuccess(true);
+        //   setLoading(false);
+        //   window.location.href = isLocal ? "/home" : "/holiday-react/home";
+        // } else {
+        //   setSuccess(false);
+        //   setLoading(false);
+        //   alert("Invalid credentials. Please try again.");
+        //   setUserInput("");
+        // }
+        const valid = userdata.map((user) => {
+          if (user.username === userInput && user.password === userPassword) {
+            return true;
+          } else {
+            return false;
+          }
+        });
+
+        if (valid.includes(true)) {
+          window.location.href = isLocal ? "/home" : "/holiday-react/home";
           setSuccess(true);
           setLoading(false);
-          window.location.href = isLocal ? "/home" : "/holiday-react/home";
         } else {
-          setSuccess(false);
-          setLoading(false);
           alert("Invalid credentials. Please try again.");
           setUserInput("");
+          setUserPassword("");
+          setSuccess(false);
+          setLoading(false);
         }
       }, 1000);
       timer.current = setTimeout(() => {}, 1100);
