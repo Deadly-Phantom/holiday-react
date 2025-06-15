@@ -1,7 +1,6 @@
 "use client";
 import TopBar from "@/components/TopBar";
 import Gallery from "@/components/Gallery";
-import FullWidthImage from "@/components/FullWidthImage";
 import Footer from "@/components/Footer";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { useStore } from "@/store";
@@ -16,7 +15,6 @@ export default function Home() {
     >
       <CssBaseline />
       <TopBar />
-      <FullWidthImage />
 
       <Gallery />
       <Footer />

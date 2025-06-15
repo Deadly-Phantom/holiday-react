@@ -15,15 +15,15 @@ export const tristanDarkTheme = createTheme({
 });
 export const tristanLightTheme = createTheme({
   palette: {
-    mode: "light",
+    mode: 'light',
     primary: {
-      main: "#2979ff",
-      dark: "#651fff",
-      contrastText: "rgba(10,11,26,0.87)",
-      light: "#40c4ff",
+      main: '#2979ff',
+      dark: '#651fff',
+      contrastText: 'rgba(10,11,26,0.87)',
+      light: '#40c4ff',
     },
     secondary: {
-      main: "#f50057",
+      main: '#f50057',
     },
   },
 });

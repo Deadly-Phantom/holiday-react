@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import {
   Code,
+  Collections,
   DarkMode,
   Home,
   LightMode,
@@ -20,6 +21,7 @@ import {
 import { useState } from "react";
 import { isLocal } from "@/isLocal";
 import { useStore } from "@/store";
+import DatePicker from "./DatePicker";
 
 export default function TopBar() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -38,7 +40,7 @@ export default function TopBar() {
 
   return (
     <Box sx={{ flexGrow: 1, marginBottom: 2 }}>
-      <AppBar position="fixed">
+      <AppBar position="fixed" sx={{ color: "#ffffff" }}>
         <Toolbar>
           <IconButton
             aria-controls={open ? "basic-menu" : undefined}
@@ -86,10 +88,23 @@ export default function TopBar() {
               </ListItemIcon>
               <ListItemText>Dev</ListItemText>
             </MenuItem>
+            <MenuItem
+              onClick={() => {
+                window.location.href = isLocal
+                  ? "/gallery"
+                  : "/holiday-react/gallery";
+              }}
+            >
+              <ListItemIcon>
+                <Collections fontSize="small" />
+              </ListItemIcon>
+              <ListItemText>Gallery</ListItemText>
+            </MenuItem>
           </Menu>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Croatia Trip 2025
           </Typography>
+          <DatePicker />
           <IconButton
             color="inherit"
             onClick={() => {
