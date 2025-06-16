@@ -1,9 +1,14 @@
 "use client";
 import TopBar from "@/components/TopBar";
-import Gallery from "@/components/Gallery";
 import FullWidthImage from "@/components/FullWidthImage";
 import Footer from "@/components/Footer";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CssBaseline,
+  ThemeProvider,
+} from "@mui/material";
 import { useStore } from "@/store";
 import { tristanDarkTheme, tristanLightTheme } from "@/theme";
 
@@ -17,8 +22,10 @@ export default function Home() {
       <CssBaseline />
       <TopBar />
       <FullWidthImage />
-
-      <Gallery />
+      <Card>
+        <CardHeader title="Croatia" subheader={+new Date()} />
+        <CardContent></CardContent>
+      </Card>
       <Footer />
     </ThemeProvider>
   );

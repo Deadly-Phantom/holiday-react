@@ -4,55 +4,63 @@ export const imageData = [
     title: "Rocky beach",
     author: "@tristan_heusser",
     role: "god",
-    date: "2025-05-28"
+    date: "2025-05-28",
+    description: "A beautiful rocky beach in Croatia, perfect for swimming and relaxing.",
   },
   {
     img: "burger.jpeg",
     title: "Burger",
     author: "@tristan_heusser",
     role: "mortal",
-    date: "2025-05-29"
+    date: "2025-05-29",
+    description: "A delicious burger with fresh ingredients, enjoyed on a sunny day.",
   },
   {
     img: "pizza.jpeg",
     title: "Pizza",
     author: "@tristan_heusser",
     role: "god",
-    date: "2025-05-30"
+    date: "2025-05-30",
+    description: "A mouth-watering pizza with a crispy crust and a variety of toppings, perfect for sharing with friends.",
   },
   {
     img: "icecream.jpeg",
     title: "Icecream",
     author: "@tristan_heusser",
     role: "god",
-    date: "2025-05-31"
+    date: "2025-05-31",
+    description: "A refreshing ice cream treat, ideal for cooling down on a hot summer day.",
   },
   {
     img: "friends.jpeg",
     title: "Friends",
     author: "@tristan_heusser",
     role: "god",
-    date: "2025-06-01"
+    date: "2025-06-01",
+    description: "A group of friends enjoying their time together, creating unforgettable memories during the Croatia trip.",
   },
   {
     img: "dinner.jpeg",
     title: "Dinner",
     author: "@tristan_heusser",
     role: "god",
-    date: "2025-06-02"
+    date: "2025-06-02",
+    description: "A delightful dinner with friends, featuring local Croatian cuisine and a warm atmosphere.",
   },
   {
     img: "evening.jpeg",
     title: "Evening",
     author: "@tristan_heusser",
     role: "god",
-    date: "2025-06-03"
+    date: "2025-06-03",
+    description: "A serene evening by the sea, with the sun setting and casting a beautiful glow over the landscape.",
   },
   {
     img: "basketball.jpeg",
     title: "Basketball",
     author: "@tristan_heusser",
     role: "god",
-    date: "2025-06-04"
+    date: "2025-06-04",
+    description: "A fun basketball game with friends, showcasing teamwork and friendly competition under the Croatian sun.",
   },
 ];
