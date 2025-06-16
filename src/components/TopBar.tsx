@@ -3,10 +3,12 @@ import {
   AppBar,
   Box,
   IconButton,
+  InputAdornment,
   ListItemIcon,
   ListItemText,
   Menu,
   MenuItem,
+  TextField,
   Toolbar,
   Typography,
 } from "@mui/material";
@@ -17,6 +19,7 @@ import {
   Home,
   LightMode,
   Menu as MenuIcon,
+  Search,
 } from "@mui/icons-material";
 import { useState } from "react";
 import { isLocal } from "@/isLocal";
@@ -27,7 +30,8 @@ export default function TopBar() {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const myTheme = useStore((state) => state.myTheme);
-
+  const searchInput = useStore((state) => state.searchInput);
+  const setSearchInput = useStore((state) => state.setSearchInput);
   const setMyTheme = useStore((state) => state.setMyTheme);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -40,7 +44,7 @@ export default function TopBar() {
 
   return (
     <Box sx={{ flexGrow: 1, marginBottom: 2 }}>
-      <AppBar position="fixed" sx={{ color: "#ffffff" }}>
+      <AppBar position="fixed" sx={{ color: "#ffffff", paddingTop: 1 }}>
         <Toolbar>
           <IconButton
             aria-controls={open ? "basic-menu" : undefined}
@@ -104,6 +108,24 @@ export default function TopBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Croatia Trip 2025
           </Typography>
+          <TextField
+            id="search"
+            label="Search"
+            variant="outlined"
+            size="medium"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            sx={{ marginRight: 2, width: 200 }}
+            slotProps={{
+              input: {
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Search />
+                  </InputAdornment>
+                ),
+              },
+            }}
+          />
           <DatePicker />
           <IconButton
             color="inherit"

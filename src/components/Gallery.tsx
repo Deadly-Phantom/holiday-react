@@ -16,6 +16,7 @@ import Image from "./Image";
 
 export default function Gallery() {
   const userInput = useStore((state) => state.userInput);
+  const searchInput = useStore((state) => state.searchInput);
   const date = useStore((state) => state.date);
   const [viewMode, setViewMode] = useState<string | null>("left");
 
@@ -34,12 +35,13 @@ export default function Gallery() {
   }
 
   return (
-    <Box sx={{ paddingTop: 6 }}>
+    <Box sx={{ paddingTop: 9, flexGrow: 1 }}>
       <ToggleButtonGroup
         value={viewMode}
         exclusive
         onChange={handleViewMode}
         aria-label="text viewMode"
+        sx={{ justifySelf: "flex-end" }}
       >
         <ToggleButton value="list" aria-label="list">
           <ViewList />
@@ -62,10 +64,17 @@ export default function Gallery() {
           {imageData
             .filter((i) => (role === "mortal" ? i.role === role : true))
             .filter((i) =>
+              i.description.includes(searchInput) ||
+              i.title.includes(searchInput) ||
+              i.date.includes(searchInput)
+                ? true
+                : false
+            )
+            .filter((i) =>
               i.date && date && date != "" ? i.date === date : true
             )
             .map((item) => (
-              <ImageListItem key={item.img}>                
+              <ImageListItem key={item.img}>
                 <Image image={item.img} alt={"Image"} />
                 <ImageListItemBar
                   title={item.title}
@@ -88,7 +97,11 @@ export default function Gallery() {
             ))}
         </ImageList>
       )}
-      {viewMode === "list" && "BOOM"}
+      {viewMode === "list" && (
+        <Box flexGrow={1} height={"85vh"}>
+          "BOOM"
+        </Box>
+      )}
     </Box>
   );
 }
