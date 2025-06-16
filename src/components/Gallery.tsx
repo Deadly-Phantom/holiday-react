@@ -12,6 +12,7 @@ import { imageData } from "./imageData";
 import { useStore } from "@/store";
 import { MouseEvent, useState } from "react";
 import { ViewList, ViewModule } from "@mui/icons-material";
+import Image from "./Image";
 
 export default function Gallery() {
   const userInput = useStore((state) => state.userInput);
@@ -64,17 +65,8 @@ export default function Gallery() {
               i.date && date && date != "" ? i.date === date : true
             )
             .map((item) => (
-              <ImageListItem key={item.img}>
-                <img
-                  srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                  src={`${item.img}?w=248&fit=crop&auto=format`}
-                  alt={item.title}
-                  style={{ height: "200px" }}
-                  loading="lazy"
-                  onClick={() => {
-                    console.log("ToDo: Fullscreen");
-                  }}
-                />
+              <ImageListItem key={item.img}>                
+                <Image image={item.img} alt={"Image"} />
                 <ImageListItemBar
                   title={item.title}
                   subtitle={
