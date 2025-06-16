@@ -12,22 +12,23 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 export default function DatePicker() {
   const setDate = useStore((state) => state.setDate);
   const dateRef = useRef(null);
-
   return (
     <Stack
       direction={"row"}
       spacing={2}
       sx={{
         padding: 0,
-        color: "white",
       }}
     >
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <MuiDatePicker
-          sx={{}}
+        <MuiDatePicker        
+          sx={{
+            '& .MuiPickersInputBase-root, & .MuiIconButton-root, & label': {
+              color: 'white !important',
+            }
+          }}
           inputRef={dateRef}
           label="Select a Date"
-          // value={date}
           onChange={(e) => {
             if (e) {
               setDate(
