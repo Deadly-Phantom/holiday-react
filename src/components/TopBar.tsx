@@ -115,11 +115,15 @@ export default function TopBar() {
             size="medium"
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
-            sx={{ marginRight: 2, width: 200 }}
+            sx={{
+              marginRight: 2,
+              width: 200,
+              "& *": { color: "#ffffff", borderColor: "#ffffff" },
+            }}
             slotProps={{
               input: {
                 startAdornment: (
-                  <InputAdornment position="start">
+                  <InputAdornment position="start" sx={{ color: "#ffffff" }}>
                     <Search />
                   </InputAdornment>
                 ),

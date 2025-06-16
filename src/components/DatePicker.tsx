@@ -21,11 +21,11 @@ export default function DatePicker() {
       }}
     >
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <MuiDatePicker        
+        <MuiDatePicker
           sx={{
-            '& .MuiPickersInputBase-root, & .MuiIconButton-root, & label': {
-              color: 'white !important',
-            }
+            "& .MuiPickersInputBase-root, & .MuiIconButton-root, & label": {
+              color: "white !important",
+            },
           }}
           inputRef={dateRef}
           label="Select a Date"
