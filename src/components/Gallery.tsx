@@ -99,7 +99,7 @@ export default function Gallery() {
       )}
       {viewMode === "list" && (
         <Box flexGrow={1} height={"85vh"}>
-          "BOOM"
+          BOOM
         </Box>
       )}
     </Box>
