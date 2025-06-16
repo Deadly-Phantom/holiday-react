@@ -43,8 +43,8 @@ export default function DatePicker() {
         />
       </LocalizationProvider>
       <Button
-        color="error"
-        variant="contained"
+        color="inherit"
+        variant="text"
         onClick={() => {
           setDate("");
           // console.log((dateRef.current as any).value); // Clear the date in
