@@ -41,7 +41,7 @@ export default function Gallery() {
         exclusive
         onChange={handleViewMode}
         aria-label="text viewMode"
-        sx={{ justifySelf: "flex-end" }}
+        sx={{ display: "flex", justifyContent: "flex-end", position: "fixed", top: 80, right: 10, zIndex: 1000, padding: 1 }}
       >
         <ToggleButton value="list" aria-label="list">
           <ViewList />
