@@ -1,6 +1,10 @@
 "use client";
 
+import { useTheme } from "@mui/material";
+
 export default function Footer() {
+  const theme = useTheme();
+
   return (
     <div
       style={{
@@ -9,7 +13,7 @@ export default function Footer() {
         left: 0,
         width: "100%",
         height: "40px",
-        backgroundColor: "#f1f1f1",
+        backgroundColor: theme.palette.mode === "dark" ? "#202020" : "#f1f1f1",
         textAlign: "center",
         lineHeight: "50px",
         fontSize: "14px",
