@@ -481,6 +481,13 @@
   resolved "https://registry.npmjs.org/@nolyfill/is-core-module/-/is-core-module-1.0.39.tgz"
   integrity sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==
 
+"@openmeteo/sdk@^1.19.0":
+  version "1.20.1"
+  resolved "https://registry.npmjs.org/@openmeteo/sdk/-/sdk-1.20.1.tgz"
+  integrity sha512-o5tw3+N617Ms8nDm649PWwWt6PDz8NHWBLjOOFB8bx/EJpvsvKEeHMMoapxQ71bjHzQM+4h39eCe6/nM+nBuwg==
+  dependencies:
+    flatbuffers "^25.2.10"
+
 "@popperjs/core@^2.11.8":
   version "2.11.8"
   resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz"
@@ -1515,6 +1522,11 @@ flat-cache@^4.0.0:
     flatted "^3.2.9"
     keyv "^4.5.4"
 
+flatbuffers@^25.2.10:
+  version "25.2.10"
+  resolved "https://registry.npmjs.org/flatbuffers/-/flatbuffers-25.2.10.tgz"
+  integrity sha512-7JlN9ZvLDG1McO3kbX0k4v+SUAg48L1rIwEvN6ZQl/eCtgJz9UylTMzE9wrmYrcorgxm3CX/3T/w5VAub99UUw==
+
 flatted@^3.2.9:
   version "3.3.3"
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.3.3.tgz"
@@ -2189,6 +2201,14 @@ object.values@^1.1.6, object.values@^1.2.0, object.values@^1.2.1:
     call-bound "^1.0.3"
     define-properties "^1.2.1"
     es-object-atoms "^1.0.0"
+
+openmeteo@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npmjs.org/openmeteo/-/openmeteo-1.2.0.tgz"
+  integrity sha512-YinFo02TM4wXdm9o2FBAO2u1ka3drNdnFsGNskiO8aCWvZa6nljh3ioH79ipwPdFhCrIiq/LCfpjDGXqH2RBFw==
+  dependencies:
+    "@openmeteo/sdk" "^1.19.0"
+    flatbuffers "^25.2.10"
 
 optionator@^0.9.3:
   version "0.9.4"
